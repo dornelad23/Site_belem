@@ -1,0 +1,26 @@
+/* Estilo geral do site */
+body{
+font-family: Arial; /* Fonte do site */
+margin: 0; /* Remove margem padrão */
+}
+
+/* Cabeçalho */
+header{
+background: #111; /* Cor de fundo */
+color: white; /* Cor do texto */
+padding: 15px; /* Espaçamento interno */
+text-align: center; /* Centraliza texto */
+}
+
+/* Links do menu */
+nav a{
+color: white; /* Cor do texto */
+margin: 10px; /* Espaço entre links */
+text-decoration: none; /* Remove sublinhado */
+}
+
+/* Conteúdo principal */
+section{
+padding: 40px; /* Espaçamento interno */
+text-align: center; /* Centraliza texto */
+}
