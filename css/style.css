@@ -1,26 +1,111 @@
-/* Estilo geral do site */
 body{
-font-family: Arial; /* Fonte do site */
-margin: 0; /* Remove margem padrão */
+margin:0;
+font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Cabeçalho */
+/* HEADER */
+
 header{
-background: #111; /* Cor de fundo */
-color: white; /* Cor do texto */
-padding: 15px; /* Espaçamento interno */
-text-align: center; /* Centraliza texto */
+background:#0a2342;
+color:white;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:20px 40px;
 }
 
-/* Links do menu */
+.nome_igreja{
+font-size:28px;
+font-weight:bold;
+}
+
 nav a{
-color: white; /* Cor do texto */
-margin: 10px; /* Espaço entre links */
-text-decoration: none; /* Remove sublinhado */
+color:white;
+text-decoration:none;
+margin-left:30px;
+font-weight:bold;
+font-size:14px;
 }
 
-/* Conteúdo principal */
-section{
-padding: 40px; /* Espaçamento interno */
-text-align: center; /* Centraliza texto */
+/* BANNER */
+
+.banner{
+background: url(../view/img/nave.jpeg);
+background-size: cover;
+background-position: center;
+height: 637px;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+text-align:center;
+}
+
+.banner-content{
+background: rgba(0,0,0,0.5);
+padding:30px;
+border-radius:5px;
+}
+
+/* CULTOS */
+
+.cultos{
+text-align:center;
+padding:80px;
+}
+
+.culto-container{
+display:flex;
+justify-content:center;
+gap:20px;
+}
+
+.culto-box{
+border:1px solid #ddd;
+padding:20px;
+width:150px;
+}
+
+/* HISTORIA */
+
+.historia{
+background:#f5f5f5;
+text-align:center;
+padding:60px;
+}
+
+/* EVENTOS */
+
+.eventos{
+text-align:center;
+padding:60px;
+}
+
+.evento-container{
+display:flex;
+justify-content:center;
+gap:20px;
+}
+
+.evento-card{
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+padding:20px;
+width:200px;
+}
+
+/* CONTATO */
+
+.contato{
+background:#f5f5f5;
+text-align:center;
+padding:60px;
+}
+
+/* FOOTER */
+
+footer{
+background:#0a2342;
+color:white;
+text-align:center;
+padding:30px;
 }
