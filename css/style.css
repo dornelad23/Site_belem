@@ -30,7 +30,7 @@ font-size:14px;
 /* BANNER */
 
 .banner{
-background: url(../view/img/nave.jpeg);
+background-image: url(../view/img/WhatsApp\ Image\ 2026-04-18\ at\ 14.18.59.jpeg);
 background-size: cover;
 background-position: center;
 height: 637px;
@@ -42,8 +42,9 @@ text-align:center;
 }
 
 .banner-content{
-background: rgba(0,0,0,0.5);
+background: rgba(0,0,0,0.4);
 padding:30px;
+width: 400px;
 border-radius:5px;
 }
 
