@@ -1,114 +1,209 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Igreja Adventista</title>
+<title>IASD Belém</title>
 
 <link rel="stylesheet" href="../css/style.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-<header>
+<header class="header">
 
-<h1 class="nome_igreja">IASD</h1>
+<div class="container header-container">
+
+<div class="logo">
+<span class="logo-iasd">IASD</span>
+<h1 class="logo-belem">Belém</h1>
+<small>Igreja Adventista do Sétimo Dia</small>
+</div>
 
 <nav>
-<a href="#">INÍCIO</a>
-<a href="#">HISTÓRIA</a>
-<a href="#">CULTOS</a>
-<a href="#">EVENTOS</a>
-<a href="#">CONTATO</a>
+
+<a href="#">Início</a>
+<a href="#historia">Nossa História</a>
+<a href="#cultos">Cultos</a>
+<a href="#eventos">Eventos</a>
+<a href="#contato">Contato</a>
+
 </nav>
+
+</div>
 
 </header>
 
 <section class="banner">
 
-<div class="banner-content">
-<h2>Bem-vindo à IASD</h2>
-<p>Uma família de esperança</p>
+<div class="overlay"></div>
+
+<div class="slides">
+<img src="img/img1.png" class="slide active">
+<img src="img/img2.png" class="slide">
+</div>
+
+<div class="banner-text">
+
+<h1>IASD Belém</h1>
+
+<p>Uma igreja para todos. Um lugar de esperança.</p>
+
+<a href="#historia" class="btn-banner">Saiba Mais</a>
+
 </div>
 
 </section>
 
-<section class="cultos">
+<section id="historia">
 
-<h2>Cultos Presenciais</h2>
+<div class="container">
 
-<div class="culto-container">
+<h2>Nossa História</h2>
 
-<div class="culto-box">
+<p>
+Nossa igreja nasceu com o propósito de levar esperança, fé e amor para a comunidade.
+Desde o início temos trabalhado com dedicação, promovendo projetos sociais e eventos.
+Hoje continuamos firmes com nossa missão de acolher todos e levar a mensagem de esperança.
+</p>
+
+</div>
+
+</section>
+
+
+<section id="cultos" class="bg">
+
+<div class="container">
+
+<h2>Cultos</h2>
+
+<div class="cultos">
+
+<div class="culto">
 <h3>Sábado</h3>
 <p>09:00</p>
-<p>10:30</p>
 </div>
 
-<div class="culto-box">
+<div class="culto">
 <h3>Domingo</h3>
-<p>19:00</p>
+<p>19:30</p>
 </div>
 
-<div class="culto-box">
+<div class="culto">
 <h3>Quarta</h3>
 <p>20:00</p>
 </div>
 
 </div>
 
-</section>
-
-<section class="historia">
-
-<h2>Nossa História</h2>
-
-<p>
-A Igreja Adventista do Sétimo Dia é uma igreja cristã protestante
-com presença mundial. Nossa missão é levar esperança e amor.
-</p>
+</div>
 
 </section>
 
-<section class="eventos">
+
+<section id="eventos">
+
+<div class="container">
 
 <h2>Eventos</h2>
 
-<div class="evento-container">
+<div class="eventos">
 
-<div class="evento-card">
-<h3>Estudo Eventos Finais</h3>
-<p>Domingo 18h</p>
+<div class="evento">
+
+<img src="img/img1.png">
+
+<div class="evento-texto">
+<h3>Semana Jovem</h3>
+<p>Evento especial para jovens</p>
 </div>
 
-<div class="evento-card">
-<h3>Grandes Orações</h3>
-<p>Quarta 20h</p>
+</div>
+
+<div class="evento">
+
+<img src="img/img2.png">
+
+<div class="evento-texto">
+<h3>Ação Social</h3>
+<p>Projeto comunitário</p>
+</div>
+
+</div>
+
 </div>
 
 </div>
 
 </section>
 
-<section class="contato">
+
+<section id="contato" class="bg">
+
+<div class="container">
 
 <h2>Contato</h2>
 
-<p>Rua Exemplo, 123</p>
-<p>São Paulo - SP</p>
+<div class="contato">
+
+<div class="info">
+
+<div class="endereco">
+<i class="fa-solid fa-location-dot"></i>
+<p>Rua Exemplo 123 - São Paulo</p>
+</div>
+
+<div class="telefone">
+<i class="fa-solid fa-phone"></i>
 <p>(11) 99999-9999</p>
+</div>
+
+<div class="redes">
+
+<a href="#" class="instagram">
+<i class="fab fa-instagram"></i>
+</a>
+
+<a href="#" class="youtube">
+<i class="fab fa-youtube"></i>
+</a>
+
+<a href="#" class="whatsapp">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+</div>
+
+</div>
+
+<div class="mapa">
+
+<iframe 
+src="https://www.google.com/maps?q=sao+paulo&output=embed">
+</iframe>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 <footer>
 
-<p>Igreja Adventista do Sétimo Dia</p>
-<p>Todos os direitos reservados</p>
+<p>© 2026 IASD Belém - Todos os direitos reservados</p>
 
 </footer>
+
+<script src="../js/script.js"></script>
 
 </body>
 </html>
