@@ -197,13 +197,47 @@ margin-bottom:40px;
 font-size:32px;
 }
 
-/* História */
+/* Nossa História */
 
-#historia p{
-text-align:center;
-max-width:800px;
+#historia{
+background:white;
+}
+
+.historia-container{
+max-width:900px;
 margin:auto;
-line-height:1.6;
+}
+
+.historia-card{
+background:#fff;
+padding:50px;
+border-radius:12px;
+box-shadow:0 10px 30px rgba(0,0,0,0.05);
+text-align:center;
+}
+
+#historia h2{
+font-size:34px;
+margin-bottom:25px;
+position:relative;
+display:inline-block;
+}
+
+#historia h2::after{
+content:"";
+width:70px;
+height:3px;
+background:#f5c542;
+display:block;
+margin:10px auto 0;
+border-radius:2px;
+}
+
+.historia-card p{
+font-size:18px;
+line-height:1.8;
+margin-bottom:20px;
+color:#555;
 }
 
 /* Cultos */
