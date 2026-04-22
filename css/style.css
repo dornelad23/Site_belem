@@ -242,30 +242,55 @@ color:#555;
 
 /* Cultos */
 
-.bg{
-background:#eee;
+#cultos{
+background:#f7f7f7;
 }
 
 .cultos{
 display:flex;
-gap:20px;
 justify-content:center;
+gap:40px;
 flex-wrap:wrap;
+margin-top:40px;
 }
 
 .culto{
 background:white;
-padding:25px;
-width:250px;
+padding:40px 30px;
+width:320px;
 text-align:center;
-border-radius:8px;
+border-radius:15px;
 transition:.3s;
-box-shadow:0 5px 15px rgba(0,0,0,0.05);
+box-shadow:0 10px 25px rgba(0,0,0,0.05);
+border-top:4px solid #f5c542;
+}
+
+.culto i{
+font-size:32px;
+color:#f5c542;
+margin-bottom:15px;
+}
+
+.culto h3{
+font-size:22px;
+margin-bottom:8px;
+}
+
+.culto p{
+color:#666;
+margin-bottom:15px;
+font-size:16px;
+}
+
+.culto span{
+font-size:20px;
+font-weight:600;
+color:#0d2b4d;
 }
 
 .culto:hover{
-transform:translateY(-8px);
-box-shadow:0 10px 20px rgba(0,0,0,0.1);
+transform:translateY(-10px);
+box-shadow:0 15px 30px rgba(0,0,0,0.08);
 }
 
 /* Eventos */
