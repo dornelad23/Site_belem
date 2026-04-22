@@ -1,18 +1,31 @@
-let slides = document.querySelectorAll(".slide")
-let index = 0
+const slides = document.querySelectorAll(".slide");
+const header = document.querySelector(".header");
 
-function trocarSlide(){
+let index = 0;
 
-slides[index].classList.remove("active")
+function trocarSlide() {
+    if (slides.length === 0) return;
 
-index++
+    slides[index].classList.remove("active");
 
-if(index >= slides.length){
-index = 0
+    index++;
+    if (index >= slides.length) {
+        index = 0;
+    }
+
+    slides[index].classList.add("active");
 }
 
-slides[index].classList.add("active")
-
+if (slides.length > 1) {
+    setInterval(trocarSlide, 6000);
 }
 
-setInterval(trocarSlide,5000)
+window.addEventListener("scroll", () => {
+    if (!header) return;
+
+    if (window.scrollY > 20) {
+        header.classList.add("scroll");
+    } else {
+        header.classList.remove("scroll");
+    }
+});
