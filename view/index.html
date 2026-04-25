@@ -12,7 +12,44 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
 </head>
+
+<div class="modal-live" id="modal-live">
+    <div class="live-conteudo">
+
+        <button class="fechar-live" id="fechar-live">&times;</button>
+
+        <span class="live-badge">🔴 AO VIVO / ÚLTIMO CULTO</span>
+
+        <h2>Transmissão da IASD Belém</h2>
+
+        <p class="live-status">
+            Assista a transmissão ao vivo ou o último culto disponível.
+        </p>
+
+        <div class="live-video" id="live-container">
+
+    <iframe
+        id="live-frame"
+        src="https://www.youtube.com/embed/live_stream?channel=UC0RqFUeh2gCIkpNCkyPSBig"
+        allowfullscreen>
+    </iframe>
+
+    <div class="live-fallback" id="live-fallback">
+        <p>Não foi possível carregar a transmissão aqui.</p>
+
+        <a href="https://www.youtube.com/@iasdbelemsp/live" target="_blank" class="btn-live">
+            Assistir no YouTube
+        </a>
+    </div>
+
+</div>
+
+    </div>
+</div>
 
 <body>
 
@@ -33,6 +70,7 @@
 <a href="#cultos">Cultos</a>
 <a href="#eventos">Eventos</a>
 <a href="#contato">Contato</a>
+<a href="#" id="abrir-live" class="link-ao-vivo">Ao Vivo</a>
 
 </nav>
 
@@ -116,47 +154,80 @@ Hoje, a IASD Belém continua firme em sua missão, sendo um lugar de comunhão, 
 
 </section>
 
-<section id="eventos">
+<section id="oracao">
+    <div class="container">
 
-<div class="container">
+        <div class="oracao-card">
 
-<h2>Eventos</h2>
+            <div class="oracao-texto">
+                <h2>Pedidos de Oração</h2>
+                <p>
+                    Escreva seu pedido abaixo. Nossa equipe irá orar por você.
+                    Se preferir, envie de forma anônima.
+                </p>
+            </div>
 
-<div class="eventos">
+            <form id="form-oracao" class="form-oracao">
 
-<div class="evento">
+                <div class="campo-nome">
+                    <input type="text" name="nome" id="nome-oracao" placeholder="Seu nome">
+                </div>
 
-<div class="evento-img">
-<img src="img/img1.png">
-<span class="evento-data">20 JUL</span>
-</div>
+                <textarea name="pedido" placeholder="Escreva seu pedido de oração" required></textarea>
 
-<div class="evento-texto">
-<h3>Semana Jovem</h3>
-<p>Uma semana especial com mensagens, louvor e comunhão para jovens.</p>
-</div>
+                <label class="anonimo">
+                    <input type="checkbox" id="anonimo" name="anonimo" value="Sim">
+                    Enviar de forma anônima
+                </label>
 
-</div>
+                <button type="submit">Enviar Pedido</button>
 
-<div class="evento">
+                <p id="msg-status"></p>
 
-<div class="evento-img">
-<img src="img/img2.png">
-<span class="evento-data">05 AGO</span>
-</div>
+            </form>
 
-<div class="evento-texto">
-<h3>Ação Solidária</h3>
-<p>Projeto social voltado para ajudar a comunidade local.</p>
-</div>
+        </div>
 
-</div>
-
-</div>
-
-</div>
-
+    </div>
 </section>
+
+<section id="eventos">
+    <div class="container">
+
+        <h2>Eventos</h2>
+
+        <div class="eventos" id="lista-eventos-home"></div>
+
+        <div class="eventos-botao-area">
+            <button class="btn-mais-eventos" id="abrir-agenda">
+                Ver agenda completa
+            </button>
+        </div>
+
+    </div>
+</section>
+
+<div class="modal-agenda" id="modal-agenda">
+    <div class="modal-conteudo">
+
+        <button class="fechar-modal" id="fechar-agenda">&times;</button>
+
+        <h2>Agenda de Eventos</h2>
+        <p class="agenda-subtitulo">Veja todos os próximos eventos da IASD Belém</p>
+
+        <div class="filtros-eventos">
+            <button class="filtro ativo" data-filtro="Todos">Todos</button>
+            <button class="filtro" data-filtro="Culto">Cultos</button>
+            <button class="filtro" data-filtro="Jovens">Jovens</button>
+            <button class="filtro" data-filtro="Ação Social">Social</button>
+            <button class="filtro" data-filtro="Infantil">Infantil</button>
+            <button class="filtro" data-filtro="Família">Família</button>
+        </div>
+
+        <div class="agenda-lista" id="agenda-completa"></div>
+
+    </div>
+</div>
 
 <section id="contato" class="bg">
 
@@ -184,20 +255,20 @@ Hoje, a IASD Belém continua firme em sua missão, sendo um lugar de comunhão, 
 </div>
 </div>
 
-<div class="redes">
+<p class="siga-texto">Acompanhe nossas redes sociais</p>
 
-<a href="#" class="instagram">
-<i class="fab fa-instagram"></i>
-</a>
+<div class="redes-sociais">
+    <a href="https://www.instagram.com/iasdbelemsp/" target="_blank" class="instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
 
-<a href="#" class="youtube">
-<i class="fab fa-youtube"></i>
-</a>
+    <a href="https://www.facebook.com/IASDBelemSP" target="_blank" class="facebook">
+        <i class="fab fa-facebook-f"></i>
+    </a>
 
-<a href="#" class="whatsapp">
-<i class="fab fa-whatsapp"></i>
-</a>
-
+    <a href="https://www.youtube.com/IASDBelemSP" target="_blank" class="youtube">
+        <i class="fab fa-youtube"></i>
+    </a>
 </div>
 
 </div>
@@ -221,6 +292,10 @@ src="https://www.google.com/maps?q=Igreja+Adventista+do+Sétimo+Dia+Belém+São+
 </footer>
 
 <script src="../js/script.js"></script>
+
+<a href="https://wa.me/5511917383783" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
 
 </body>
 </html>
