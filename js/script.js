@@ -1,102 +1,104 @@
+/* =========================
+   SLIDER DO BANNER
+========================= */
 const slides = document.querySelectorAll(".slide");
-const header = document.querySelector(".header");
-
 let index = 0;
 
-function trocarSlide() {
-    if (slides.length === 0) return;
+function trocarSlide(){
+    if(slides.length === 0) return;
 
     slides[index].classList.remove("active");
 
     index++;
-    if (index >= slides.length) {
+
+    if(index >= slides.length){
         index = 0;
     }
 
     slides[index].classList.add("active");
 }
 
-if (slides.length > 1) {
+if(slides.length > 1){
     setInterval(trocarSlide, 6000);
 }
 
-window.addEventListener("scroll", () => {
-    if (!header) return;
+/* =========================
+   HEADER COM SOMBRA
+========================= */
+const header = document.querySelector(".header");
 
-    if (window.scrollY > 20) {
+window.addEventListener("scroll", () => {
+    if(!header) return;
+
+    if(window.scrollY > 20){
         header.classList.add("scroll");
-    } else {
+    }else{
         header.classList.remove("scroll");
     }
 });
 
-const form = document.getElementById("form-oracao");
-const msg = document.getElementById("msg-status");
-
-form.addEventListener("submit", function(e){
-    e.preventDefault();
-
-    const data = new FormData(form);
-
-    fetch("https://formspree.io/f/xwvayyqq", {
-        method: "POST",
-        body: data,
-        headers: {
-            'Accept': 'application/json'
-        }
-    })
-    .then(response => {
-        if (response.ok) {
-            msg.innerText = "Pedido enviado com sucesso 🙏";
-            msg.style.color = "green";
-            form.reset();
-        } else {
-            msg.innerText = "Erro ao enviar. Tente novamente.";
-            msg.style.color = "red";
-        }
-    })
-    .catch(() => {
-        msg.innerText = "Erro de conexão.";
-        msg.style.color = "red";
-    });
-});
-
+/* =========================
+   PEDIDOS DE ORAÇÃO
+========================= */
 const formOracao = document.getElementById("form-oracao");
 const nomeOracao = document.getElementById("nome-oracao");
 const anonimoCheck = document.getElementById("anonimo");
 const msgStatus = document.getElementById("msg-status");
 
-if (anonimoCheck && nomeOracao) {
+if(anonimoCheck && nomeOracao){
     anonimoCheck.addEventListener("change", () => {
-        if (anonimoCheck.checked) {
+        if(anonimoCheck.checked){
             nomeOracao.value = "Anônimo";
             nomeOracao.readOnly = true;
-        } else {
+        }else{
             nomeOracao.value = "";
             nomeOracao.readOnly = false;
         }
     });
 }
 
-if (formOracao) {
+if(formOracao){
     formOracao.addEventListener("submit", function(e){
         e.preventDefault();
 
-        msgStatus.innerText = "Pedido enviado com sucesso 🙏";
-        msgStatus.style.color = "green";
+        const data = new FormData(formOracao);
 
-        formOracao.reset();
-        nomeOracao.readOnly = false;
+        fetch("https://formspree.io/f/xwvayyqq", {
+            method: "POST",
+            body: data,
+            headers: {
+                "Accept": "application/json"
+            }
+        })
+        .then(response => {
+            if(response.ok){
+                msgStatus.innerText = "Pedido enviado com sucesso 🙏";
+                msgStatus.style.color = "green";
+
+                formOracao.reset();
+                nomeOracao.readOnly = false;
+            }else{
+                msgStatus.innerText = "Erro ao enviar. Tente novamente.";
+                msgStatus.style.color = "red";
+            }
+        })
+        .catch(() => {
+            msgStatus.innerText = "Erro de conexão.";
+            msgStatus.style.color = "red";
+        });
     });
 }
 
+/* =========================
+   EVENTOS
+========================= */
 const eventos = [
     {
         titulo: "Semana Jovem",
         descricao: "Programação especial com louvor, mensagens e comunhão.",
         data: "2026-07-20",
         horario: "19:30",
-        imagem: "img/img1.png",
+        imagem: "view/img/img3.jpeg",
         tipo: "Jovens"
     },
     {
@@ -104,7 +106,7 @@ const eventos = [
         descricao: "Projeto social voltado para ajudar a comunidade local.",
         data: "2026-08-05",
         horario: "09:00",
-        imagem: "img/img2.png",
+        imagem: "view/img/img2.png",
         tipo: "Ação Social"
     },
     {
@@ -112,7 +114,7 @@ const eventos = [
         descricao: "Momento especial de louvor, oração e agradecimento.",
         data: "2026-08-18",
         horario: "20:00",
-        imagem: "img/img1.png",
+        imagem: "view/img/img1.png",
         tipo: "Culto"
     }
 ];
@@ -128,18 +130,23 @@ let filtroAtual = "Todos";
 
 function formatarData(dataTexto){
     const data = new Date(dataTexto + "T00:00:00");
+
     const dia = String(data.getDate()).padStart(2, "0");
-    const mes = data.toLocaleDateString("pt-BR", { month: "short" }).replace(".", "").toUpperCase();
+    const mes = data
+        .toLocaleDateString("pt-BR", { month: "short" })
+        .replace(".", "")
+        .toUpperCase();
+
     return { dia, mes };
 }
 
 function pegarEventosFuturos(){
     const hoje = new Date();
-    hoje.setHours(0,0,0,0);
+    hoje.setHours(0, 0, 0, 0);
 
     return eventos
         .filter(evento => new Date(evento.data + "T00:00:00") >= hoje)
-        .sort((a,b) => new Date(a.data) - new Date(b.data));
+        .sort((a, b) => new Date(a.data) - new Date(b.data));
 }
 
 function carregarEventosHome(){
@@ -171,12 +178,10 @@ function carregarEventosHome(){
 }
 
 function carregarAgenda(){
-    let eventosFuturos = pegarEventosFuturos();
-
-    let eventosFiltrados = eventosFuturos;
+    let eventosFiltrados = pegarEventosFuturos();
 
     if(filtroAtual !== "Todos"){
-        eventosFiltrados = eventosFuturos.filter(evento => evento.tipo === filtroAtual);
+        eventosFiltrados = eventosFiltrados.filter(evento => evento.tipo === filtroAtual);
     }
 
     if(!agendaCompleta) return;
@@ -201,15 +206,21 @@ function carregarAgenda(){
 
         const btnVerTodos = document.getElementById("btn-ver-todos");
 
-        btnVerTodos.addEventListener("click", () => {
-            filtroAtual = "Todos";
+        if(btnVerTodos){
+            btnVerTodos.addEventListener("click", () => {
+                filtroAtual = "Todos";
 
-            filtros.forEach(b => b.classList.remove("ativo"));
+                filtros.forEach(btn => btn.classList.remove("ativo"));
 
-            document.querySelector('.filtro[data-filtro="Todos"]').classList.add("ativo");
+                const filtroTodos = document.querySelector('.filtro[data-filtro="Todos"]');
 
-            carregarAgenda();
-        });
+                if(filtroTodos){
+                    filtroTodos.classList.add("ativo");
+                }
+
+                carregarAgenda();
+            });
+        }
 
         return;
     }
@@ -236,19 +247,24 @@ function carregarAgenda(){
     });
 }
 
-if(abrirAgenda){
+if(abrirAgenda && modalAgenda){
     abrirAgenda.addEventListener("click", () => {
         filtroAtual = "Todos";
 
-        filtros.forEach(b => b.classList.remove("ativo"));
-        document.querySelector('.filtro[data-filtro="Todos"]').classList.add("ativo");
+        filtros.forEach(btn => btn.classList.remove("ativo"));
+
+        const filtroTodos = document.querySelector('.filtro[data-filtro="Todos"]');
+
+        if(filtroTodos){
+            filtroTodos.classList.add("ativo");
+        }
 
         modalAgenda.classList.add("ativo");
         carregarAgenda();
     });
 }
 
-if(fecharAgenda){
+if(fecharAgenda && modalAgenda){
     fecharAgenda.addEventListener("click", () => {
         modalAgenda.classList.remove("ativo");
     });
@@ -264,55 +280,55 @@ if(modalAgenda){
 
 filtros.forEach(btn => {
     btn.addEventListener("click", () => {
-        filtros.forEach(b => b.classList.remove("ativo"));
-        btn.classList.add("ativo");
+        filtros.forEach(item => item.classList.remove("ativo"));
 
+        btn.classList.add("ativo");
         filtroAtual = btn.dataset.filtro;
+
         carregarAgenda();
     });
 });
 
 carregarEventosHome();
 
-const liveStatus = document.getElementById("live-status");
-const liveBadge = document.getElementById("live-badge");
-
-// ⚠️ COLOCA SEU ID AQUI
-const channelId = "UC0RqFUeh2gCIkpNCkyPSBig";
-
-async function verificarLive(){
-    try{
-        const res = await fetch(`https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`);
-        const text = await res.text();
-
-        // Verifica se tem live recente
-        if(text.includes("live")){
-            liveStatus.innerText = "Estamos ao vivo agora 🙏";
-            liveBadge.classList.remove("off");
-            liveBadge.innerText = "🔴 AO VIVO";
-        } else {
-            liveStatus.innerText = "No momento não estamos ao vivo.";
-            liveBadge.classList.add("off");
-            liveBadge.innerText = "Offline";
-        }
-
-    } catch(e){
-        liveStatus.innerText = "Não foi possível verificar a transmissão.";
-    }
-}
-
+/* =========================
+   MODAL AO VIVO
+========================= */
 const abrirLive = document.getElementById("abrir-live");
 const fecharLive = document.getElementById("fechar-live");
 const modalLive = document.getElementById("modal-live");
+const iframeLive = document.getElementById("live-frame");
+const fallbackLive = document.getElementById("live-fallback");
 
-if(abrirLive){
+function ativarFallbackLive(){
+    if(iframeLive){
+        iframeLive.style.display = "none";
+    }
+
+    if(fallbackLive){
+        fallbackLive.style.display = "block";
+    }
+}
+
+if(abrirLive && modalLive){
     abrirLive.addEventListener("click", (e) => {
         e.preventDefault();
+
         modalLive.classList.add("ativo");
+
+        setTimeout(() => {
+            try{
+                if(!iframeLive || !iframeLive.contentWindow || iframeLive.contentWindow.length === 0){
+                    ativarFallbackLive();
+                }
+            }catch(e){
+                ativarFallbackLive();
+            }
+        }, 3000);
     });
 }
 
-if(fecharLive){
+if(fecharLive && modalLive){
     fecharLive.addEventListener("click", () => {
         modalLive.classList.remove("ativo");
     });
@@ -325,25 +341,3 @@ if(modalLive){
         }
     });
 }
-
-const iframe = document.getElementById("live-frame");
-const fallback = document.getElementById("live-fallback");
-
-function ativarFallback(){
-    iframe.style.display = "none";
-    fallback.style.display = "block";
-}
-
-// tempo pra tentar carregar (3s)
-setTimeout(() => {
-    try {
-        const src = iframe.src;
-
-        // se ainda estiver com erro (YouTube não carregou)
-        if (!iframe.contentWindow || iframe.contentWindow.length === 0) {
-            ativarFallback();
-        }
-    } catch (e) {
-        ativarFallback();
-    }
-}, 3000);

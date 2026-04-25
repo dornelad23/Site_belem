@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>IASD Belém</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+<div class="container header-container">
+<div class="logo">
+<span class="logo-iasd">IASD</span>
+<h1 class="logo-belem">Belém</h1>
+<small>Igreja Adventista do Sétimo Dia</small>
+</div>
+
+<nav>
+<a href="#">Início</a>
+<a href="#historia">Nossa História</a>
+<a href="#cultos">Cultos</a>
+<a href="#eventos">Eventos</a>
+<a href="#contato">Contato</a>
+<a href="#" id="abrir-live" class="link-ao-vivo">Ao Vivo</a>
+</nav>
+</div>
+</header>
+
+<!-- MODAL AO VIVO -->
+<div class="modal-live" id="modal-live">
+<div class="live-conteudo">
+<button class="fechar-live" id="fechar-live">&times;</button>
+<span class="live-badge">🔴 AO VIVO / ÚLTIMO CULTO</span>
+<h2>Transmissão da IASD Belém</h2>
+<p class="live-status">Assista a transmissão ao vivo ou o último culto disponível.</p>
+
+<div class="live-video" id="live-container">
+<iframe id="live-frame" src="https://www.youtube.com/embed/live_stream?channel=UC0RqFUeh2gCIkpNCkyPSBig" allowfullscreen></iframe>
+
+<div class="live-fallback" id="live-fallback">
+<p>Não foi possível carregar a transmissão aqui.</p>
+<a href="https://www.youtube.com/@iasdbelemsp/live" target="_blank" class="btn-live">Assistir no YouTube</a>
+</div>
+</div>
+</div>
+</div>
+
+<!-- BANNER -->
+<section class="banner">
+<div class="overlay"></div>
+
+<div class="slides">
+<img src="view/img/img1.png" class="slide active" alt="IASD Belém">
+<img src="view/img/img2.png" class="slide" alt="Igreja Adventista Belém">
+</div>
+
+<div class="banner-text">
+<h1>IASD Belém</h1>
+<p>Uma igreja para todos. Um lugar de esperança.</p>
+<a href="#historia" class="btn-banner">Saiba Mais</a>
+</div>
+</section>
+
+<!-- HISTÓRIA -->
+<section id="historia">
+<div class="container historia-container">
+<div class="historia-card">
+<h2>Nossa História</h2>
+
+<p>A Igreja Adventista do Sétimo Dia de Belém nasceu com o propósito de levar esperança, fé e amor para toda a comunidade. Desde o início, nossa missão sempre foi acolher pessoas, fortalecer famílias e compartilhar a mensagem de esperança encontrada na Palavra de Deus.</p>
+
+<p>Com o passar dos anos, a igreja cresceu não apenas em número de membros, mas também em projetos e ações que impactam vidas. Realizamos eventos espirituais, ações sociais, programas voltados para jovens, crianças e famílias, sempre com o objetivo de servir e ajudar a comunidade.</p>
+
+<p>Hoje, a IASD Belém continua firme em sua missão, sendo um lugar de comunhão, amizade e crescimento espiritual. Aqui, todos são bem-vindos para conhecer mais sobre Deus, fazer novas amizades e encontrar um ambiente acolhedor e cheio de esperança.</p>
+</div>
+</div>
+</section>
+
+<!-- CULTOS -->
+<section id="cultos" class="bg">
+<div class="container">
+<h2>Cultos</h2>
+
+<div class="cultos">
+<div class="culto">
+<i class="fa-solid fa-church"></i>
+<h3>Sábado</h3>
+<p>Escola Sabatina & Culto Divino</p>
+<span>09:30</span>
+</div>
+
+<div class="culto">
+<i class="fa-solid fa-book-bible"></i>
+<h3>Quarta-feira</h3>
+<p>Oração e Estudo Bíblico</p>
+<span>20:00</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PEDIDOS DE ORAÇÃO -->
+<section id="oracao">
+<div class="container">
+<div class="oracao-card">
+<div class="oracao-texto">
+<h2>Pedidos de Oração</h2>
+<p>Escreva seu pedido abaixo. Nossa equipe irá orar por você. Se preferir, envie de forma anônima.</p>
+</div>
+
+<form id="form-oracao" class="form-oracao">
+<div class="campo-nome">
+<input type="text" name="nome" id="nome-oracao" placeholder="Seu nome">
+</div>
+
+<textarea name="pedido" placeholder="Escreva seu pedido de oração" required></textarea>
+
+<label class="anonimo">
+<input type="checkbox" id="anonimo" name="anonimo" value="Sim">
+Enviar de forma anônima
+</label>
+
+<button type="submit">Enviar Pedido</button>
+<p id="msg-status"></p>
+</form>
+</div>
+</div>
+</section>
+
+<!-- EVENTOS -->
+<section id="eventos">
+<div class="container">
+<h2>Eventos</h2>
+
+<div class="eventos" id="lista-eventos-home"></div>
+
+<div class="eventos-botao-area">
+<button class="btn-mais-eventos" id="abrir-agenda">Ver agenda completa</button>
+</div>
+</div>
+</section>
+
+<!-- MODAL AGENDA -->
+<div class="modal-agenda" id="modal-agenda">
+<div class="modal-conteudo">
+<button class="fechar-modal" id="fechar-agenda">&times;</button>
+
+<h2>Agenda de Eventos</h2>
+<p class="agenda-subtitulo">Veja todos os próximos eventos da IASD Belém</p>
+
+<div class="filtros-eventos">
+<button class="filtro ativo" data-filtro="Todos">Todos</button>
+<button class="filtro" data-filtro="Culto">Cultos</button>
+<button class="filtro" data-filtro="Jovens">Jovens</button>
+<button class="filtro" data-filtro="Ação Social">Social</button>
+<button class="filtro" data-filtro="Infantil">Infantil</button>
+<button class="filtro" data-filtro="Família">Família</button>
+</div>
+
+<div class="agenda-lista" id="agenda-completa"></div>
+</div>
+</div>
+
+<!-- CONTATO -->
+<section id="contato" class="bg">
+<div class="container">
+<h2>Contato</h2>
+
+<div class="contato">
+<div class="contato-info">
+<div class="contato-item">
+<i class="fa-solid fa-location-dot"></i>
+<div>
+<h3>Endereço</h3>
+<p>Rua Exemplo, 123 - Belém<br>São Paulo - SP</p>
+</div>
+</div>
+
+<div class="contato-item">
+<i class="fa-solid fa-clock"></i>
+<div>
+<h3>Horários</h3>
+<p>Quarta-feira - 20:00<br>Sábado - 09:30</p>
+</div>
+</div>
+
+<p class="siga-texto">Acompanhe nossas redes sociais</p>
+
+<div class="redes-sociais">
+<a href="https://www.instagram.com/iasdbelemsp/" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+<a href="https://www.facebook.com/IASDBelemSP" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a>
+<a href="https://www.youtube.com/IASDBelemSP" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
+</div>
+</div>
+
+<div class="mapa">
+<iframe src="https://www.google.com/maps?q=Igreja+Adventista+do+Sétimo+Dia+Belém+São+Paulo&output=embed"></iframe>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<p>© 2026 IASD Belém • Igreja Adventista do Sétimo Dia</p>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/5511917383783" class="whatsapp-float" target="_blank">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+<script src="js/script.js"></script>
+</body>
+</html>
